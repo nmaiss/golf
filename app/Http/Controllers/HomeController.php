@@ -24,7 +24,8 @@ class HomeController extends Controller
     public function index()
     {
         $myavailabilities = auth()->user()->availabilities;
-        $availabilities = \App\Availability::where('user_id', '!=' , auth()->user()->id)->get();
+        //$availabilities = \App\Availability::where('user_id', '!=' , auth()->user()->id)->get();
+        $availabilities = \App\Availability::all();
         return view('home', compact('myavailabilities'), compact('availabilities'));
     }
 
@@ -33,9 +34,11 @@ class HomeController extends Controller
         auth()->user()->availabilities()->create([
             'date' => $req->input('date'),
             'temps' => $req->input('inlineRadioOptions'),
-            'description' => $req->input('description'),
+            'lieu' => $req->input('lieuOptions'),
+            'numero' => $req->input('number'),
+            'nom' => $req->input('nom'),
+            'prenom' => $req->input('prenom'),
         ]);
-        auth()->user()->update(array('number' => $req->input('numero')));
         return redirect('/');
     }
 

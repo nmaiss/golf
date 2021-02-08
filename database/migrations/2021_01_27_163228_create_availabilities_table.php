@@ -16,8 +16,11 @@ class CreateAvailabilitiesTable extends Migration
         Schema::create('availabilities', function (Blueprint $table) {
             $table->id();
             $table->integer('date')->nullable();
-            $table->text('description')->nullable();
+            $table->text('prenom')->nullable();
+            $table->text('nom')->nullable();
+            $table->text('numero')->nullable();
             $table->text('temps')->nullable();
+            $table->text('lieu')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->index('user_id');
             $table->timestamps();
