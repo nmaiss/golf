@@ -31,7 +31,6 @@ class HomeController extends Controller
 
     public function add(Request $req)
     {
-        dd($req->input('date'));
         auth()->user()->availabilities()->create([
             'date' => $req->input('date'),
             'temps' => $req->input('inlineRadioOptions'),
