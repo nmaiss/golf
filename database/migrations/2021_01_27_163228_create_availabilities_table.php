@@ -15,7 +15,7 @@ class CreateAvailabilitiesTable extends Migration
     {
         Schema::create('availabilities', function (Blueprint $table) {
             $table->id();
-            $table->integer('date')->nullable();
+            $table->text('date')->nullable();
             $table->text('prenom')->nullable();
             $table->text('nom')->nullable();
             $table->text('numero')->nullable();
