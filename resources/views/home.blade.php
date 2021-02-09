@@ -21,7 +21,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Date de disponibilité') }}</label>
 
                             <div class="col-md-6">
-                                <input id="date" name="date" type="date" class="form-control" required>
+                                <input id="date" name="date" type="date"  name="begin" placeholder="dd-mm-yyyy" value="" min="1997-01-01" max="2030-12-31" class="form-control" required>
                             </div>
                         </div>
 
@@ -34,8 +34,8 @@
                                   <label class="form-check-label" for="matin">Matin</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="jour" value="Journée">
-                                  <label class="form-check-label" for="jour">Journée</label>
+                                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="jour" value="Après-midi">
+                                  <label class="form-check-label" for="jour">Après-midi</label>
                                 </div>
                             </div>
                         </div>
@@ -126,7 +126,7 @@
                   </thead>
                   <tbody>
                       @foreach($availabilities as $availability)
-                        @if (strcmp(date('Y-m-d'), $availability->date) < 0)
+                        @if (strcmp(date('d/m/Y'), $availability->date) < 0)
                         <tr>
                           <td>{{ $availability->nom }}</td>
                           <td>{{ $availability->prenom }}</td>

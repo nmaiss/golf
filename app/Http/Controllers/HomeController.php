@@ -31,8 +31,14 @@ class HomeController extends Controller
 
     public function add(Request $req)
     {
+        $dateconvertie = $req->input('date');
+        $temp22 = $dateconvertie;
+        $tempd = substr($temp22, 8, 2) . '-' . substr($temp22, 5, 2) . '-' .  substr($temp22, 0, 4);
+
+        $temppp = substr($tempd, 0);
+        $temppp = str_replace('-', '/', $temppp);
         auth()->user()->availabilities()->create([
-            'date' => $req->input('date'),
+            'date' => $temppp,
             'temps' => $req->input('inlineRadioOptions'),
             'lieu' => $req->input('lieuOptions'),
             'numero' => $req->input('number'),
