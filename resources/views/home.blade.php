@@ -126,6 +126,7 @@
                   </thead>
                   <tbody>
                       @foreach($availabilities as $availability)
+                        @if (strcmp(date('Y-m-d'), $availability->date) < 0)
                         <tr>
                           <td>{{ $availability->nom }}</td>
                           <td>{{ $availability->prenom }}</td>
@@ -134,6 +135,7 @@
                           <td>{{ $availability->temps }}</td>
                           <td>{{ $availability->lieu }}</td>
                         </tr>
+                        @endif
                      @endforeach
                   </tbody>
                 </table>
